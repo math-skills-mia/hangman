@@ -29,6 +29,7 @@ function App() {
     .split("") // converts string to an array of letters
     .every((letter) => guessedLetters.includes(letter)); // if every includes is true, then is true
 
+  console.log(wordToGuess);
   return (
     <div
       style={{
@@ -70,7 +71,6 @@ function App() {
         handleAddGuessedLetter={addGuessedLetter}
         handleDisabled={isWinner || isLoser}
       />
-      {console.log(wordToGuess)}
     </div>
   );
 }
