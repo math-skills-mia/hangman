@@ -10,7 +10,7 @@
 
 /* Hover if not disabled */
 .button:hover:not(:disabled) {
-    background-color: hsl(200, 80%, 80%);
+    background-color: hsl(109, 75%, 87%);
     font-weight: 550;
 }
 
@@ -20,10 +20,11 @@
 }
 
 .button.correct {
-    background-color: hsl(200, 90%, 60%);
+    background-color: hsl(91, 80%, 51%);
     color: white
 }
 
 .button.incorrect {
+    background-color: hsl(124, 26%, 51%);
     opacity: .3;
 }

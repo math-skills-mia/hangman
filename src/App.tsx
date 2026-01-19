@@ -38,6 +38,8 @@ function App() {
         gap: "2rem",
         margin: "0 auto",
         alignItems: "center",
+        backgroundColor: "#f6fef8ff",
+        padding: "2rem",
       }}
     >
       <div className="bg-dark text-white p-3 text-center rounded shadow">
@@ -50,7 +52,7 @@ function App() {
           fontSize: "2rem",
           textAlign: "center",
           fontFamily: "monospace",
-          height: "3rem",
+          height: "2rem",
         }}
       >
         {isWinner && "You Win! - Refresh to try again"}
