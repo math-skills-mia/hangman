@@ -4,7 +4,7 @@ import HangmanDrawing from "../components/games/hangman/HangmanDrawing";
 import HangmanWord from "../components/games/hangman/HangmanWord";
 import Keyboard from "../components/games/hangman/Keyboard";
 
-function App() {
+function HangmanPage() {
   const [wordToGuess] = useState(() =>
     wordList[Math.floor(Math.random() * wordList.length)].toUpperCase(),
   );
@@ -33,22 +33,22 @@ function App() {
 
   console.log(wordToGuess);
   return (
-    <div className="flex flex-col gap-5 items-center bg-[#f8fff1] p-4 min-h-screen w-full font-mono">
+    <div className="flex flex-col gap-5 items-center bg-[#f8fff1] p-4 min-h-screen w-full font-mono transition-all duration-300">
       {/* Header */}
-      <div className="bg-lime-900 text-white py-3 px-6 rounded-lg text-center w-full max-w-md">
-        <h1 className="text-2xl md:text-3xl font-bold tracking-widest">
+      <div className="bg-lime-900 text-white py-2 px-6 rounded-lg text-center w-full max-w-md">
+        <h1 className="text-xl md:text-3xl font-bold tracking-widest">
           HANGMAN
         </h1>
       </div>
       {/* Win/Lose Message */}
-      <div className="text-xl text-center font-bold h-8 text-slate-800 -mt-1 -mb-2">
+      <div className="text-base md:text-xl text-center font-bold h-8 text-slate-800 -mt-1 -mb-3 md:-mb-2 md:mt-0 transition-all duration-300">
         {isWinner && (
-          <span className="text-green-600 text-base">
+          <span className="text-green-600">
             You Win! - Refresh to play again
           </span>
         )}
         {isLoser && (
-          <span className="text-red-600 text-base">
+          <span className="text-red-600">
             You Lose! - Refresh to play again
           </span>
         )}
@@ -79,4 +79,4 @@ function App() {
   );
 }
 
-export default App;
+export default HangmanPage;

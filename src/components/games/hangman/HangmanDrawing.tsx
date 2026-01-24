@@ -5,11 +5,12 @@ interface Props {
 function HangmanDrawing({ numberOfIncorrectGuesses }: Props) {
   const HEAD = (
     <div
+      className="z-50"
       style={{
         height: "60px",
         width: "60px",
         borderRadius: "100%",
-        border: "10px solid black",
+        border: "10px solid oklch(53.2% 0.157 131.589)",
         position: "absolute",
         marginLeft: "285px",
         marginTop: "50px",
@@ -22,7 +23,7 @@ function HangmanDrawing({ numberOfIncorrectGuesses }: Props) {
       style={{
         height: "110px",
         width: "10px",
-        background: "black",
+        background: "oklch(53.2% 0.157 131.589)",
         position: "absolute",
         marginLeft: "310px",
         marginTop: "110px",
@@ -35,7 +36,7 @@ function HangmanDrawing({ numberOfIncorrectGuesses }: Props) {
       style={{
         height: "10px",
         width: "80px",
-        background: "black",
+        background: "oklch(53.2% 0.157 131.589)",
         position: "absolute",
         marginLeft: "243px",
         marginTop: "141px",
@@ -49,7 +50,7 @@ function HangmanDrawing({ numberOfIncorrectGuesses }: Props) {
       style={{
         height: "10px",
         width: "80px",
-        background: "black",
+        background: "oklch(53.2% 0.157 131.589)",
         position: "absolute",
         marginLeft: "307px",
         marginTop: "141px",
@@ -63,7 +64,7 @@ function HangmanDrawing({ numberOfIncorrectGuesses }: Props) {
       style={{
         height: "10px",
         width: "90px",
-        background: "black",
+        background: "oklch(53.2% 0.157 131.589)",
         position: "absolute",
         marginLeft: "242px",
         marginTop: "246.5px",
@@ -77,7 +78,7 @@ function HangmanDrawing({ numberOfIncorrectGuesses }: Props) {
       style={{
         height: "10px",
         width: "90px",
-        background: "black",
+        background: "oklch(53.2% 0.157 131.589)",
         position: "absolute",
         marginLeft: "298px",
         marginTop: "246.5px",
@@ -90,7 +91,7 @@ function HangmanDrawing({ numberOfIncorrectGuesses }: Props) {
 
   return (
     // Scaled image down, shrunk to the top rather than center
-    <div className="relative h-100 w-87.5 scale-[0.65] origin-top">
+    <div className="relative h-100 w-87.5 scale-[0.5] md:scale-[0.65] origin-top -mb-46 md:-mb-30 transition-all duration-300">
       {BODY_PARTS.slice(0, numberOfIncorrectGuesses)}
       <div // top horizontal line
         style={{
