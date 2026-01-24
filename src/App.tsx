@@ -4,7 +4,6 @@ import HangmanPage from "./pages/HangmanPage";
 import "./styles.css";
 
 function App() {
-  console.log("App component rendering");
   return (
     <BrowserRouter>
       <Routes>

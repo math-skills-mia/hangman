@@ -1,7 +1,9 @@
+import Navbar from "../components/homepage/Navbar";
+
 function HomePage() {
   return (
     <div>
-      <h1>HomePage</h1>
+      <Navbar />
       <button
         onClick={() => (window.location.href = "/hangman")}
         style={{
@@ -14,7 +16,7 @@ function HomePage() {
           cursor: "pointer",
         }}
       >
-        Play Hangman (Alternative)
+        Hangman
       </button>
     </div>
   );

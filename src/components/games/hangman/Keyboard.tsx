@@ -1,10 +1,8 @@
-import styles from "./Keyboard.module.css";
-
 interface Props {
-  activeLetters: string[];
+  correctLetters: string[];
   handleAddGuessedLetter: (letter: string) => void;
   handleDisabled?: boolean;
-  inactiveLetters: string[];
+  incorrectLetters: string[];
 }
 
 const KEYS = [
@@ -37,32 +35,30 @@ const KEYS = [
 ];
 
 function Keyboard({
-  activeLetters,
+  correctLetters,
   handleAddGuessedLetter,
   handleDisabled = false,
-  inactiveLetters,
+  incorrectLetters,
 }: Props) {
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: ".5rem",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        maxWidth: "800px",
-      }}
-    >
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(50px,max-content))] gap-2 w-full">
       {KEYS.map((key) => {
-        const isActive = activeLetters.includes(key);
-        const isInactive = inactiveLetters.includes(key);
+        const isCorrect = correctLetters.includes(key);
+        const isWrong = incorrectLetters.includes(key);
         return (
           <button
             key={key}
-            className={`${styles.button} ${isActive && styles.correct} ${
-              isInactive && styles.incorrect
-            }`}
-            disabled={isActive || isInactive || handleDisabled}
             onClick={() => handleAddGuessedLetter(key)}
+            disabled={isCorrect || isWrong || handleDisabled}
+            className={`
+              aspect-square 
+              text-xl font-bold uppercase 
+              border-2 rounded-lg 
+              hover:bg-lime-200 transition-colors
+              disabled:cursor-not-allowed disabled:disabled:pointer-events-none
+              ${isCorrect ? "bg-lime-400 text-white border-slate-900" : "bg-white"}
+              ${isWrong ? "opacity-30 bg-lime-700" : "bg-white"}
+            `}
           >
             {key}
           </button>

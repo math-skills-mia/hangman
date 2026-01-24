@@ -29,50 +29,52 @@ function App() {
     .split("") // converts string to an array of letters
     .every((letter) => guessedLetters.includes(letter)); // if every includes is true, then is true
 
+  if (!wordToGuess) return <div>Loading...</div>;
+
   console.log(wordToGuess);
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "2rem",
-        margin: "0 auto",
-        alignItems: "center",
-        backgroundColor: "#f8fff1ff",
-        padding: "2rem",
-      }}
-    >
-      <div className="bg-dark text-white p-3 text-center rounded shadow">
-        <h1 className="mb-0" style={{ fontFamily: "monospace" }}>
-          Hangman
+    <div className="flex flex-col gap-5 items-center bg-[#f8fff1] p-4 min-h-screen w-full font-mono">
+      {/* Header */}
+      <div className="bg-lime-900 text-white py-3 px-6 rounded-lg text-center w-full max-w-md">
+        <h1 className="text-2xl md:text-3xl font-bold tracking-widest">
+          HANGMAN
         </h1>
       </div>
-      <div
-        style={{
-          fontSize: "2rem",
-          textAlign: "center",
-          fontFamily: "monospace",
-          height: "2rem",
-        }}
-      >
-        {isWinner && "You Win! - Refresh to try again"}
-        {isLoser && "You Lose! - Refresh to try again"}
-        {!isWinner && !isLoser && " "}
-      </div>
-      <HangmanDrawing numberOfIncorrectGuesses={incorrectLetters.length} />
-      <HangmanWord
-        word={wordToGuess}
-        guessedLetters={guessedLetters}
-        reveal={isLoser}
-      />
-      <Keyboard
-        activeLetters={guessedLetters.filter(
-          (letter) => !incorrectLetters.includes(letter),
+      {/* Win/Lose Message */}
+      <div className="text-xl text-center font-bold h-8 text-slate-800 -mt-1 -mb-2">
+        {isWinner && (
+          <span className="text-green-600 text-base">
+            You Win! - Refresh to play again
+          </span>
         )}
-        inactiveLetters={incorrectLetters}
-        handleAddGuessedLetter={addGuessedLetter}
-        handleDisabled={isWinner || isLoser}
-      />
+        {isLoser && (
+          <span className="text-red-600 text-base">
+            You Lose! - Refresh to play again
+          </span>
+        )}
+      </div>
+      {/* Game Area */}
+      <div className="flex flex-col items-center w-full max-w-4xl">
+        {/* Hangman Drawing */}
+        <HangmanDrawing numberOfIncorrectGuesses={incorrectLetters.length} />
+        {/* Hangman Word */}
+        <HangmanWord
+          word={wordToGuess}
+          guessedLetters={guessedLetters}
+          reveal={isLoser}
+        />
+      </div>
+      {/* Keyboard */}
+      <div className="w-full max-w-2xl self-center">
+        <Keyboard
+          correctLetters={guessedLetters.filter(
+            (letter) => !incorrectLetters.includes(letter),
+          )}
+          incorrectLetters={incorrectLetters}
+          handleAddGuessedLetter={addGuessedLetter}
+          handleDisabled={isWinner || isLoser}
+        />
+      </div>
     </div>
   );
 }

@@ -7,19 +7,12 @@ interface Props {
 function HangmanWord({ word, guessedLetters, reveal }: Props) {
   const letters = word.split("");
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: ".25em",
-        fontSize: "6rem",
-        fontWeight: "bold",
-        textTransform: "uppercase",
-        fontFamily: "monospace",
-        flexWrap: "wrap",
-      }}
-    >
+    <div className="flex gap-4 text-4xl md:text-6xl font-bold uppercase font-mono flex-wrap justify-center p-4">
       {letters.map((letter, index) => (
-        <span key={index} style={{ borderBottom: ".1em solid black" }}>
+        <span
+          key={index}
+          className="border-b-[.1em] border-black h-12 md:h-20 min-w-5 text-center"
+        >
           <span
             style={{
               visibility:
