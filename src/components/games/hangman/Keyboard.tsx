@@ -51,7 +51,7 @@ function Keyboard({
             onClick={() => handleAddGuessedLetter(key)}
             disabled={isCorrect || isWrong || handleDisabled}
             className={`
-              h-8 w-8 md:h-13 md:w-13
+              h-8 w-8 md:h-11 md:w-11
               text-lg md:text-2xl font-bold uppercase 
               border-[1.5px] md:border-2 rounded-sm 
               transition-all duration-300

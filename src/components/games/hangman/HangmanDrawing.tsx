@@ -91,7 +91,7 @@ function HangmanDrawing({ numberOfIncorrectGuesses }: Props) {
 
   return (
     // Scaled image down, shrunk to the top rather than center
-    <div className="relative h-100 w-87.5 scale-[0.5] md:scale-[0.65] origin-top -mb-46 md:-mb-30 transition-all duration-300">
+    <div className="relative h-100 w-87.5 scale-[0.5] md:scale-[0.60] origin-top -mb-46 md:-mb-33 transition-all duration-300">
       {BODY_PARTS.slice(0, numberOfIncorrectGuesses)}
       <div // top horizontal line
         style={{

@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [showDropNav, setShowDropNav] = useState(false);
   return (
-    <div className="flex max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-lime-900 text-white justify-between items-center h-15 relative">
+    <div className="flex max-w-7xl mx-auto h-15 px-4 sm:px-6 lg:px-8 justify-between items-center  bg-lime-900 text-white relative">
       {/* Logo */}
       <h1 className="shrink-0 font-bold text-2xl tracking-wider">GAMES HUB</h1>
       {/* Desktop Menu */}
       <ul className="hidden md:flex text-lg font-semibold items-center">
         <li className="p-4 hover:bg-lime-950 hover:font-bold">HOME</li>
         <li className="p-4 hover:bg-lime-950 hover:font-bold">GAMES</li>
-        <li className="p-4 hover:bg-lime-950 hover:font-bold">ABOUT</li>
+        <li className="p-4 hover:bg-lime-950 hover:font-bold">
+          <Link to={"/about"}>ABOUT</Link>
+        </li>
       </ul>
       {/* Menu Button */}
       <button
@@ -42,7 +45,7 @@ function Navbar() {
             GAMES
           </li>
           <li className="p-4 border-t border-gray-300 text-xl hover:bg-lime-950 hover:font-bold">
-            ABOUT
+            <Link to={"/about"}>ABOUT</Link>
           </li>
         </ul>
       </div>

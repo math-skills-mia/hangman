@@ -3,6 +3,8 @@ import wordList from "word-list-json";
 import HangmanDrawing from "../components/games/hangman/HangmanDrawing";
 import HangmanWord from "../components/games/hangman/HangmanWord";
 import Keyboard from "../components/games/hangman/Keyboard";
+import { AiFillHome } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 function HangmanPage() {
   const [wordToGuess] = useState(() =>
@@ -32,11 +34,19 @@ function HangmanPage() {
   if (!wordToGuess) return <div>Loading...</div>;
 
   console.log(wordToGuess);
+  const nav = useNavigate();
   return (
     <div className="flex flex-col gap-5 items-center bg-[#f8fff1] p-4 min-h-screen w-full font-mono transition-all duration-300">
+      {/* Home Button */}
+      <button
+        onClick={() => nav("/homepage")}
+        className="fixed left-7 top-6 text-white"
+      >
+        <AiFillHome size={28} />
+      </button>
       {/* Header */}
-      <div className="bg-lime-900 text-white py-2 px-6 rounded-lg text-center w-full max-w-md">
-        <h1 className="text-xl md:text-3xl font-bold tracking-widest">
+      <div className="bg-lime-900 text-white py-2 px-6 rounded-lg text-center w-full">
+        <h1 className="text-xl md:text-2xl font-bold tracking-widest">
           HANGMAN
         </h1>
       </div>
