@@ -3,10 +3,12 @@ import HomePage from "./pages/HomePage";
 import HangmanPage from "./pages/HangmanPage";
 import "./styles.css";
 import AboutPage from "./pages/AboutPage";
+import Navbar from "./components/homepage/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         {/* Default route - shows HomePage */}
         <Route path="/" element={<HomePage />} />

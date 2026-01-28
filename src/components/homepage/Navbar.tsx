@@ -5,15 +5,26 @@ import { Link } from "react-router-dom";
 function Navbar() {
   const [showDropNav, setShowDropNav] = useState(false);
   return (
-    <div className="flex max-w-7xl mx-auto h-15 px-4 sm:px-6 lg:px-8 justify-between items-center  bg-lime-900 text-white relative">
+    <div className="flex max-w-7xl mx-auto h-15 px-4 sm:px-6 lg:px-8 justify-between items-center bg-lime-900 text-white relative">
       {/* Logo */}
-      <h1 className="shrink-0 font-bold text-2xl tracking-wider">GAMES HUB</h1>
+      <h1>
+        <Link
+          to={"/homepage"}
+          className="shrink-0 font-bold text-2xl tracking-wider hover:lime-glow hover:font-extrabold"
+        >
+          GAMES HUB
+        </Link>
+      </h1>
       {/* Desktop Menu */}
       <ul className="hidden md:flex text-lg font-semibold items-center">
-        <li className="p-4 hover:bg-lime-950 hover:font-bold">HOME</li>
-        <li className="p-4 hover:bg-lime-950 hover:font-bold">GAMES</li>
-        <li className="p-4 hover:bg-lime-950 hover:font-bold">
-          <Link to={"/about"}>ABOUT</Link>
+        <li className="block p-4 hover:bg-lime-950 hover:font-bold">GAMES</li>
+        <li>
+          <Link
+            to={"/about"}
+            className="block p-4 hover:bg-lime-950 hover:font-bold"
+          >
+            ABOUT
+          </Link>
         </li>
       </ul>
       {/* Menu Button */}
@@ -38,14 +49,16 @@ function Navbar() {
         {/* Dropdown Menu Logo */}
         <h1 className="w-full text-2xl font-bold m-4 mt-8">GAMES HUB</h1>
         <ul>
-          <li className="p-4 border-t border-gray-300 text-xl hover:bg-lime-950 hover:font-bold">
-            HOME
-          </li>
-          <li className="p-4 border-t border-gray-300 text-xl hover:bg-lime-950 hover:font-bold">
+          <li className="block p-4 border-t border-gray-300 text-xl hover:bg-lime-950 hover:font-bold">
             GAMES
           </li>
-          <li className="p-4 border-t border-gray-300 text-xl hover:bg-lime-950 hover:font-bold">
-            <Link to={"/about"}>ABOUT</Link>
+          <li>
+            <Link
+              to={"/about"}
+              className="block p-4 border-t border-gray-300 text-xl hover:bg-lime-950 hover:font-bold"
+            >
+              ABOUT
+            </Link>
           </li>
         </ul>
       </div>

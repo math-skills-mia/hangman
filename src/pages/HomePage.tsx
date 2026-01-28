@@ -1,12 +1,10 @@
 import Hero from "../components/homepage/Hero";
-import Navbar from "../components/homepage/Navbar";
 import { useNavigate } from "react-router-dom";
 
 function HomePage() {
   const nav = useNavigate();
   return (
     <div>
-      <Navbar />
       <Hero />
       <button
         onClick={() => nav("/hangman")}

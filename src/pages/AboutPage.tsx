@@ -7,7 +7,6 @@ import {
   FaGamepad,
   FaReact,
   FaJs,
-  FaCss3Alt,
 } from "react-icons/fa";
 import { SiTypescript, SiTailwindcss, SiVite } from "react-icons/si";
 import { ReactTyped } from "react-typed";
@@ -26,7 +25,7 @@ function AboutPage() {
     <div className="min-h-screen bg-lime-900 p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 px-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             About <span className="text-lime-200">GamesHub</span> & Creator
           </h1>
@@ -45,19 +44,19 @@ function AboutPage() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {/* Left Column - Personal Info */}
+          {/* Personal Info */}
           <div className="md:col-span-1">
             <div className="bg-white rounded-2xl shadow-xl p-6 sticky top-6">
               {/* Profile Image Placeholder */}
-              <div className="w-48 h-48 mx-auto rounded-full bg-linear-to-br from-purple-400 to-blue-400 mb-6 flex items-center justify-center">
-                <span className="text-white text-6xl">🎮</span>
+              <div className="w-48 h-48 mx-auto rounded-full bg-lime-600 mb-6 flex items-center justify-center">
+                <span className="text-white text-6xl">image here</span>
               </div>
 
               <h2 className="text-2xl font-bold text-center text-lime-950 mb-2">
                 Mia Striebeck
               </h2>
               <p className="text-slate-600 text-center mb-6">
-                Frontend/Backend Developer Mathmatician
+                Frontend/Backend Developer & Mathmatician
               </p>
 
               {/* Contact Info */}
@@ -141,164 +140,24 @@ function AboutPage() {
                   <p className="text-slate-700 mb-4">
                     I'm a mathematician who codes. For me, programming is
                     applied mathematics—it's about solving puzzles, building
-                    systems, and finding elegant solutions
+                    systems, and finding elegant solutions.
                   </p>
                   <p className="text-slate-700 mb-4">
                     Games are the perfect intersection of these interests. Each
-                    game is a logical system to design, implement, and refine.
-                    The same analytical thinking that solves math problems helps
-                    me write clean, efficient code.{" "}
+                    game is a logical system to{" "}
                     <span className="font-bold text-lime-700">
-                      This site is where I combine mathematics, programming, and
-                      game design.
+                      design, implement, and refine.
                     </span>
+                    The same analytical thinking that solves math problems helps
+                    me write clean, efficient code.
                   </p>
-                  <div className="bg-lime-50 p-4 rounded-lg border-l-4 border-lime-500 mt-4">
-                    <p className="text-lime-800">
-                      GamesHub is where I learning modern web development
-                      through building fun, interactive projects.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl shadow-lg p-6">
-                  <h3 className="text-2xl font-bold text-slate-800 mb-4">
-                    The Math ↔ Code Connection
-                  </h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <div className="bg-blue-100 p-2 rounded-lg">
-                          <span className="text-2xl">🧮</span>
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-slate-700">
-                            Problem-Solving
-                          </h4>
-                          <p className="text-slate-600 text-sm">
-                            Breaking complex problems into solvable steps—just
-                            like mathematical proofs
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="bg-green-100 p-2 rounded-lg">
-                          <span className="text-2xl">⚡</span>
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-slate-700">
-                            Algorithmic Thinking
-                          </h4>
-                          <p className="text-slate-600 text-sm">
-                            Designing efficient solutions with logical flow and
-                            optimization
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <div className="bg-purple-100 p-2 rounded-lg">
-                          <span className="text-2xl">🎯</span>
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-slate-700">
-                            Pattern Recognition
-                          </h4>
-                          <p className="text-slate-600 text-sm">
-                            Identifying reusable patterns in code—similar to
-                            mathematical structures
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="bg-orange-100 p-2 rounded-lg">
-                          <span className="text-2xl">🔍</span>
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-slate-700">
-                            Debugging as Proof
-                          </h4>
-                          <p className="text-slate-600 text-sm">
-                            Each bug is a hypothesis to test, with console logs
-                            as my mathematical scratchwork
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             )}
 
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-2xl font-bold text-slate-800 mb-4">
-                Mathematical Mindset → Code Solutions
-              </h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div>
-                  <h4 className="font-bold text-slate-700 mb-3 flex items-center gap-2">
-                    <span className="text-xl">📐</span> Analytical Skills
-                  </h4>
-                  <ul className="space-y-2 text-slate-600">
-                    <li className="flex items-center gap-2">
-                      <span className="text-green-500">✓</span>
-                      Abstract problem decomposition
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-green-500">✓</span>
-                      Logical reasoning & proof techniques
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-green-500">✓</span>
-                      Algorithm complexity analysis
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-700 mb-3 flex items-center gap-2">
-                    <span className="text-xl">🎮</span> Game Development
-                  </h4>
-                  <ul className="space-y-2 text-slate-600">
-                    <li className="flex items-center gap-2">
-                      <span className="text-green-500">✓</span>
-                      Game logic & state machines
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-green-500">✓</span>
-                      Interactive UI/UX design
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-green-500">✓</span>
-                      Mathematical game mechanics
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-700 mb-3 flex items-center gap-2">
-                    <span className="text-xl">💻</span> Technical Stack
-                  </h4>
-                  <ul className="space-y-2 text-slate-600">
-                    <li className="flex items-center gap-2">
-                      <span className="text-green-500">✓</span>
-                      React + TypeScript
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-green-500">✓</span>
-                      Tailwind CSS
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-green-500">✓</span>
-                      Mathematical libraries (coming soon)
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
             {/* About Me Content */}
             {activeTab === "about" && (
-              <div className="space-y-6">
+              <div className="mt-6">
                 <div className="bg-white rounded-xl shadow-lg p-6">
                   <h3 className="text-2xl font-bold text-slate-800 mb-4">
                     Skills & Expertise
@@ -336,13 +195,13 @@ function AboutPage() {
               <div className="space-y-6">
                 <div className="bg-white rounded-xl shadow-lg p-6">
                   <h3 className="text-2xl font-bold text-slate-800 mb-4">
-                    🎮 About GamesHub
+                    About GamesHub
                   </h3>
                   <p className="text-slate-700 mb-4">
-                    GamesHub is a collection of classic browser games built with
-                    modern web technologies. The project showcases interactive
-                    UI/UX design, state management, and game logic
-                    implementation using React and TypeScript.
+                    GamesHub is a collection of browser games built with modern
+                    web technologies. The project showcases interactive UI/UX
+                    design, state management, and game logic implementation
+                    using React and TypeScript.
                   </p>
                   <div className="grid md:grid-cols-2 gap-6 mt-6">
                     <div className="bg-amber-50 p-4 rounded-lg">
@@ -369,105 +228,11 @@ function AboutPage() {
                     </div>
                   </div>
                 </div>
-
-                <div className="bg-white rounded-xl shadow-lg p-6">
-                  <h3 className="text-2xl font-bold text-slate-800 mb-4">
-                    🧮 Future Math Games (Coming Soon)
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="border-2 border-dashed border-purple-300 rounded-lg p-4">
-                      <h4 className="font-bold text-purple-700 mb-2">
-                        Prime Number Hunter
-                      </h4>
-                      <p className="text-slate-600 text-sm">
-                        Identify prime numbers against the clock—applying number
-                        theory in real-time
-                      </p>
-                    </div>
-                    <div className="border-2 border-dashed border-blue-300 rounded-lg p-4">
-                      <h4 className="font-bold text-blue-700 mb-2">
-                        Graph Theory Explorer
-                      </h4>
-                      <p className="text-slate-600 text-sm">
-                        Navigate networks and solve pathfinding problems with
-                        visual algorithms
-                      </p>
-                    </div>
-                    <div className="border-2 border-dashed border-green-300 rounded-lg p-4">
-                      <h4 className="font-bold text-green-700 mb-2">
-                        Logic Gate Simulator
-                      </h4>
-                      <p className="text-slate-600 text-sm">
-                        Build circuits from Boolean logic—bridging discrete math
-                        and computing
-                      </p>
-                    </div>
-                    <div className="border-2 border-dashed border-orange-300 rounded-lg p-4">
-                      <h4 className="font-bold text-orange-700 mb-2">
-                        Calculus Visualizer
-                      </h4>
-                      <p className="text-slate-600 text-sm">
-                        Interactive exploration of derivatives, integrals, and
-                        limits
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-slate-600 mt-4 text-sm italic">
-                    Each game turns mathematical concepts into interactive
-                    challenges—because the best way to understand math is to
-                    play with it.
-                  </p>
-                </div>
-
-                <div className="bg-white rounded-xl shadow-lg p-6">
-                  <h3 className="text-2xl font-bold text-slate-800 mb-4">
-                    🚀 Future Plans
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full">
-                        Coming Soon
-                      </span>
-                      <div>
-                        <h4 className="font-bold text-slate-700">More Games</h4>
-                        <p className="text-slate-600">
-                          Memory match, Tic-tac-toe, Word search, and more!
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
-                        Planned
-                      </span>
-                      <div>
-                        <h4 className="font-bold text-slate-700">
-                          User Features
-                        </h4>
-                        <p className="text-slate-600">
-                          Score tracking, difficulty levels, multiplayer options
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full">
-                        Ideas
-                      </span>
-                      <div>
-                        <h4 className="font-bold text-slate-700">
-                          Tech Improvements
-                        </h4>
-                        <p className="text-slate-600">
-                          Backend integration, real-time features, PWA support
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             )}
 
             {/* Call to Action */}
-            <div className="mt-8 bg-linear-to-r from-purple-500 to-blue-500 rounded-xl shadow-lg p-8 text-white text-center">
+            <div className="mt-8 bg-linear-to-r from-amber-500 to-lime-500 rounded-xl shadow-lg p-8 text-white text-center">
               <h3 className="text-2xl font-bold mb-4">Let's Connect!</h3>
               <p className="mb-6">
                 Interested in collaboration or have feedback on GamesHub?
@@ -475,7 +240,7 @@ function AboutPage() {
               <div className="flex flex-wrap justify-center gap-4">
                 <a
                   href="mailto:you@example.com"
-                  className="bg-white text-purple-600 px-6 py-3 rounded-full font-bold hover:scale-105 transition"
+                  className="bg-white text-sky-600 px-6 py-3 rounded-full font-bold hover:scale-105 transition"
                 >
                   Send Email
                 </a>
