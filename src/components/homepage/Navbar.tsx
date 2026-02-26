@@ -1,28 +1,38 @@
 import { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import logo from "../../assets/images/logic_arcade_logo.png";
 
 function Navbar() {
   const [showDropNav, setShowDropNav] = useState(false);
   return (
     <>
       {/* Sticky Navbar */}
-      <div className="sticky top-0 w-full bg-lime-900/90 backdrop-blur-sm text-white z-20">
+      <div className="sticky top-0 w-full bg-lime-900/85 backdrop-blur-sm text-white z-20">
         <div className="flex max-w-7xl mx-auto h-15 px-4 sm:px-6 lg:px-8 justify-between items-center">
           {/* Logo */}
           <h1>
-            <Link
-              to={"/homepage"}
-              className="shrink-0 font-bold text-2xl tracking-wider hover:lime-glow hover:font-extrabold"
-            >
-              GAMES HUB
+            <Link to={"/homepage"} className="flex items-center">
+              <img
+                src={logo}
+                alt="LogicArcade Logo"
+                className="h-11 mt-1 w-auto"
+              />
+              <span className="shrink-0 font-bold text-2xl tracking-wider hover:lime-glow hover:font-extrabold pl-2">
+                LogicArcade
+              </span>
             </Link>
           </h1>
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex text-lg font-semibold items-center">
-            <li className="block p-4 hover:bg-lime-950 hover:font-bold">
-              GAMES
+            <li>
+              <Link
+                to={"/homepage"}
+                className="block p-4 hover:bg-lime-950 hover:font-bold"
+              >
+                GAMES
+              </Link>
             </li>
             <li>
               <Link
@@ -68,10 +78,19 @@ function Navbar() {
             : "fixed -right-full top-0 transition-all ease-in-out duration-500 h-full z-40"
         }
       >
-        <h1 className="w-full text-2xl font-bold m-4 mt-8">GAMES HUB</h1>
+        <div className="flex w-full m-4 mt-8 items-center">
+          <img src={logo} alt="LogicArcade Logo" className="h-11 mt-1 w-auto" />
+          <span className="shrink-0 font-bold text-2xl ml-2">LogicArcade</span>
+        </div>
         <ul>
-          <li className="block p-4 border-t border-gray-300 text-xl hover:bg-lime-950 hover:font-bold">
-            GAMES
+          <li>
+            <Link
+              to={"/homepage"}
+              className="block p-4 border-t border-gray-300 text-xl hover:bg-lime-950 hover:font-bold"
+              onClick={() => setShowDropNav(false)}
+            >
+              GAMES
+            </Link>
           </li>
           <li>
             <Link

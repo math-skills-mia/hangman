@@ -17,7 +17,7 @@ function AboutPage() {
   const typedStrings = [
     "React Developer",
     "Game Creator",
-    "Mathmatician",
+    "Mathematician",
     "UI/UX Designer",
   ];
 
@@ -27,7 +27,7 @@ function AboutPage() {
         {/* Header */}
         <div className="text-center mb-5 px-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            About <span className="text-lime-200">GamesHub</span> & Creator
+            About <span className="text-lime-200">LogicArcade</span> & Creator
           </h1>
           <div className="h-1 w-24 bg-lime-200 mx-auto mb-3"></div>
 
@@ -56,7 +56,7 @@ function AboutPage() {
               Mia Striebeck
             </h2>
             <p className="text-slate-600 text-center mb-6">
-              Frontend/Backend Developer & Mathmatician
+              Frontend/Backend Developer & Mathematician
             </p>
 
             {/* Contact Info */}
@@ -125,15 +125,15 @@ function AboutPage() {
                 About Me
               </button>
               <button
-                onClick={() => setActiveTab("gameshub")}
+                onClick={() => setActiveTab("logicArcade")}
                 className={`px-6 py-3 font-medium ${
-                  activeTab === "gameshub"
+                  activeTab === "logicArcade"
                     ? "text-lime-400 border-b-2 border-lime-400"
                     : "text-slate-400"
                 }`}
               >
                 <FaGamepad className="inline mr-2" />
-                About GamesHub
+                About LogicArcade
               </button>
             </div>
 
@@ -196,18 +196,18 @@ function AboutPage() {
               </>
             )}
 
-            {/* About GamesHub Content */}
-            {activeTab === "gameshub" && (
+            {/* About LogicArcade Content */}
+            {activeTab === "logicArcade" && (
               <div className="space-y-6">
                 <div className="bg-white rounded-xl shadow-lg p-6">
                   <h3 className="text-2xl font-bold text-slate-800 mb-4">
-                    About GamesHub
+                    About LogicArcade
                   </h3>
                   <p className="text-slate-700 mb-4">
-                    GamesHub is a collection of browser games built with modern
-                    web technologies. The project showcases interactive UI/UX
-                    design, state management, and game logic implementation
-                    using React and TypeScript.
+                    LogicArcade is a collection of browser games built with
+                    modern web technologies. The project showcases interactive
+                    UI/UX design, state management, and game logic
+                    implementation using React and TypeScript.
                   </p>
                   <div className="grid md:grid-cols-2 gap-6 mt-6">
                     <div className="bg-amber-50 p-4 rounded-lg">
@@ -241,7 +241,7 @@ function AboutPage() {
             <div className="mt-8 bg-linear-to-r from-amber-500 to-lime-500 rounded-xl shadow-lg p-8 text-white text-center">
               <h3 className="text-2xl font-bold mb-4">Let's Connect!</h3>
               <p className="mb-6">
-                Interested in collaboration or have feedback on GamesHub?
+                Interested in collaboration or have feedback on LogicArcade?
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a

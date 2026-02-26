@@ -4,6 +4,7 @@ import HangmanPage from "./pages/HangmanPage";
 import "./styles.css";
 import AboutPage from "./pages/AboutPage";
 import Navbar from "./components/homepage/Navbar";
+import PermutationPage from "./pages/PermutationPage";
 
 function App() {
   return (
@@ -16,11 +17,14 @@ function App() {
         {/* Home page */}
         <Route path="/homepage" element={<HomePage />} />
 
+        {/* About page */}
+        <Route path="/about" element={<AboutPage />} />
+
         {/* Hangman game page */}
         <Route path="/hangman" element={<HangmanPage />} />
 
-        {/* About page */}
-        <Route path="/about" element={<AboutPage />} />
+        {/* Permutation game page */}
+        <Route path="/permutation" element={<PermutationPage />} />
       </Routes>
     </BrowserRouter>
   );
