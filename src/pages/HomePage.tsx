@@ -3,7 +3,7 @@ import Hero from "../components/homepage/Hero";
 
 function HomePage() {
   return (
-    <div>
+    <div className="max-w-7xl mx-auto px-4">
       <Hero />
       <Link
         to={"/hangman"}

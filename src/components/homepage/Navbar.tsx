@@ -24,7 +24,7 @@ function Navbar() {
             </Link>
           </h1>
 
-          {/* Desktop Menu */}
+          {/* Desktop Menu Items */}
           <ul className="hidden md:flex text-lg font-semibold items-center">
             <li>
               <Link
@@ -78,10 +78,12 @@ function Navbar() {
             : "fixed -right-full top-0 transition-all ease-in-out duration-500 h-full z-40"
         }
       >
+        {/* Logo */}
         <div className="flex w-full m-4 mt-8 items-center">
           <img src={logo} alt="LogicArcade Logo" className="h-11 mt-1 w-auto" />
           <span className="shrink-0 font-bold text-2xl ml-2">LogicArcade</span>
         </div>
+        {/* Mobile Menu Items */}
         <ul>
           <li>
             <Link

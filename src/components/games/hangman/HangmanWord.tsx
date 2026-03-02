@@ -14,14 +14,8 @@ function HangmanWord({ word, guessedLetters, reveal }: Props) {
           className="border-b-[.1em] border-black h-11 md:h-14 min-w-5 text-center"
         >
           <span
-            style={{
-              visibility:
-                guessedLetters.includes(letter) || reveal
-                  ? "visible"
-                  : "hidden",
-              color:
-                reveal && !guessedLetters.includes(letter) ? "red" : "black",
-            }}
+            className={`${guessedLetters.includes(letter) || reveal ? "visible" : "invisible"} 
+            ${reveal && !guessedLetters.includes(letter) ? "text-red-500" : "text-black"}`}
           >
             {letter}
           </span>
