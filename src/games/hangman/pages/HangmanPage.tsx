@@ -1,8 +1,8 @@
 import { useState } from "react";
 import wordList from "word-list-json";
-import HangmanDrawing from "../components/games/hangman/HangmanDrawing";
-import HangmanWord from "../components/games/hangman/HangmanWord";
-import Keyboard from "../components/games/hangman/Keyboard";
+import HangmanDrawing from "../HangmanDrawing";
+import HangmanWord from "../HangmanWord";
+import Keyboard from "../Keyboard";
 
 function HangmanPage() {
   const [wordToGuess] = useState(() =>

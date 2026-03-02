@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import HangmanPage from "./pages/HangmanPage";
+import HomePage from "./core/pages/HomePage";
+import HangmanPage from "./games/hangman/pages/HangmanPage";
 import "./styles.css";
-import AboutPage from "./pages/AboutPage";
-import Navbar from "./components/homepage/Navbar";
-import PermutationPage from "./pages/PermutationPage";
+import AboutPage from "./core/pages/AboutPage";
+import Navbar from "./core/components/Navbar";
+import PermutationPage from "./games/permutation/pages/PermutationPage";
 
 function App() {
   return (

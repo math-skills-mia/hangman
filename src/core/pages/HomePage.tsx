@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Hero from "../components/homepage/Hero";
+import Hero from "../components/Hero";
 
 function HomePage() {
   return (
