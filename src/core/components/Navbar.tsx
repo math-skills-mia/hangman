@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logic_arcade_logo.png";
+import logo from "../../assets/images/arcadelogo.png";
 
 function Navbar() {
   const [showDropNav, setShowDropNav] = useState(false);
