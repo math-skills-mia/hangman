@@ -3,7 +3,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import hangmanThumbnail from "../../assets/images/thumbnails/hangman_thumbnail.png";
 import permutationThumbnail from "../../assets/images/thumbnails/permutation_thumbnail.png";
 
-function Hero() {
+function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const totalSlides = 3;
@@ -99,4 +99,4 @@ function Hero() {
   );
 }
 
-export default Hero;
+export default Carousel;

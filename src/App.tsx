@@ -1,30 +1,29 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./core/pages/HomePage";
-import HangmanPage from "./games/hangman/pages/HangmanPage";
-import "./styles.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import SiteLayout from "./core/layouts/SiteLayout";
 import AboutPage from "./core/pages/AboutPage";
-import Navbar from "./core/components/Navbar";
+import GamesPage from "./core/pages/GamesPage";
+import HomePage from "./core/pages/HomePage/HomePage";
+import HangmanPage from "./games/hangman/pages/HangmanPage";
 import PermutationPage from "./games/permutation/pages/PermutationPage";
+
+import "./styles.css";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
-        {/* Default route - shows HomePage */}
-        <Route path="/" element={<HomePage />} />
+        <Route element={<SiteLayout />}>
+          <Route index element={<HomePage />} />
 
-        {/* Home page */}
-        <Route path="/homepage" element={<HomePage />} />
+          <Route path="about" element={<AboutPage />} />
 
-        {/* About page */}
-        <Route path="/about" element={<AboutPage />} />
-
-        {/* Hangman game page */}
-        <Route path="/hangman" element={<HangmanPage />} />
-
-        {/* Permutation game page */}
-        <Route path="/permutation" element={<PermutationPage />} />
+          <Route path="games">
+            <Route index element={<GamesPage />} />
+            <Route path="hangman" element={<HangmanPage />} />
+            <Route path="permutation" element={<PermutationPage />} />
+          </Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
