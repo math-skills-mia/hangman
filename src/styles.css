@@ -1,4 +1,4 @@
-/* For global styles */
+/* Global styles */
 @import "tailwindcss";
 
 :root {
@@ -55,6 +55,8 @@
   --shadow-subtle: none;
 }
 
+/* Reset and document foundation */
+
 *,
 *::before,
 *::after {
@@ -63,6 +65,7 @@
 
 html {
   min-width: 320px;
+  min-height: 100%;
   background: var(--color-page);
 }
 
@@ -81,6 +84,10 @@ body {
     "Segoe UI",
     sans-serif;
   text-rendering: optimizeLegibility;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 button,
@@ -103,6 +110,9 @@ a {
 
 button {
   border: 0;
+  background: none;
+  padding: 0;
+  color: inherit;
 }
 
 img,
@@ -110,6 +120,20 @@ svg {
   display: block;
   max-width: 100%;
 }
+
+/* Theme transitions */
+
+body,
+.site-shell,
+.surface-card,
+.hero__pattern-card {
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease;
+}
+
+/* Main site layout */
 
 .site-shell {
   min-height: 100vh;
@@ -124,16 +148,16 @@ svg {
 .page-container {
   width: min(calc(100% - 2rem), var(--content-width));
   margin-inline: auto;
-  padding-block: 1.5rem 4rem;
+  padding-block: 1rem 4rem;
 }
 
-@media (min-width: 48rem) {
-  .home-page,
-  .page-container {
-    width: min(calc(100% - 4rem), var(--content-width));
-    padding-block: 2rem 5rem;
-  }
+.home-page__content {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
 }
+
+/* Shared component styles */
 
 .surface-card {
   border: 1px solid var(--color-border);
@@ -166,11 +190,202 @@ svg {
 }
 
 .interactive-element:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--color-accent) 55%, transparent);
+  outline: 3px solid
+    color-mix(in srgb, var(--color-accent) 55%, transparent);
   outline-offset: 3px;
 }
 
 ::selection {
   background: var(--color-accent);
   color: var(--color-text-strong);
+}
+
+/* Hero layout */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 2.15fr) minmax(13rem, 0.85fr);
+  gap: 1.25rem;
+}
+
+.hero__main {
+  position: relative;
+  display: flex;
+  min-height: 26rem;
+  overflow: hidden;
+  padding: clamp(2rem, 6vw, 5.5rem);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  max-width: 48rem;
+}
+
+.hero__title {
+  max-width: 10ch;
+  margin: 1rem 0 0;
+  color: var(--color-text-strong);
+  font-size: clamp(3.25rem, 9vw, 8rem);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 0.88;
+}
+
+.hero__name {
+  margin: 1.5rem 0 0;
+  color: var(--color-text);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.hero__corner-mark {
+  position: absolute;
+  top: 1.75rem;
+  right: 2rem;
+  color: var(--color-accent);
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.hero__pattern-card {
+  position: relative;
+  display: grid;
+  min-height: 26rem;
+  place-items: center;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background: var(--color-surface-muted);
+}
+
+/* Plus grid */
+
+.plus-grid {
+  display: grid;
+  width: min(100%, 20rem);
+  aspect-ratio: 1;
+  gap: clamp(0.25rem, 1vw, 0.65rem);
+  transform: rotate(-2deg);
+
+  -webkit-mask-image: linear-gradient(
+    135deg,
+    black 10%,
+    rgba(0, 0, 0, 0.9) 42%,
+    rgba(0, 0, 0, 0.25) 78%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    135deg,
+    black 10%,
+    rgba(0, 0, 0, 0.9) 42%,
+    rgba(0, 0, 0, 0.25) 78%,
+    transparent 100%
+  );
+}
+
+.plus-grid__cell {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  color: transparent;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  line-height: 1;
+}
+
+.plus-grid__cell--visible {
+  color: var(--color-text);
+}
+
+/* Larger screens */
+
+@media (min-width: 48rem) {
+  .home-page,
+  .page-container {
+    width: min(calc(100% - 4rem), var(--content-width));
+    padding-block: 2rem 5rem;
+  }
+}
+
+/* Tablet and smaller desktop */
+
+@media (max-width: 52rem) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__main {
+    min-height: 23rem;
+  }
+
+  .hero__pattern-card {
+    min-height: 14rem;
+  }
+
+  .plus-grid {
+    width: min(70%, 15rem);
+  }
+}
+
+/* Small screens */
+
+@media (max-width: 36rem) {
+  .home-page {
+    width: min(calc(100% - 1.25rem), var(--content-width));
+  }
+
+  .hero {
+    gap: 0.75rem;
+  }
+
+  .hero__main {
+    min-height: 20rem;
+    padding: 1.5rem;
+  }
+
+  .hero__pattern-card {
+    min-height: 11rem;
+    padding: 1.25rem;
+  }
+
+  .hero__corner-mark {
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .hero__name {
+    margin-top: 1rem;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

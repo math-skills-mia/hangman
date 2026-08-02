@@ -6,8 +6,11 @@ function HomePage() {
   return (
     <div className="home-page">
       <Hero />
-      <QuickTools />
-      <FeaturedGame />
+
+      <div className="home-page__content">
+        <QuickTools />
+        <FeaturedGame />
+      </div>
     </div>
   );
 }
