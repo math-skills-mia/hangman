@@ -12,17 +12,19 @@ function Hero() {
           </h1>
 
           <p className="hero__name">Mia Striebeck</p>
+
+          <div className="hero__meta" aria-label="Website sections">
+            <span>Tools</span>
+            <span aria-hidden="true">/</span>
+            <span>Games</span>
+            <span aria-hidden="true">/</span>
+            <span>Utilities</span>
+          </div>
         </div>
       </div>
 
       <aside className="hero__pattern-card surface-card" aria-hidden="true">
-        <div className="hero__pattern-desktop">
-          <PlusGrid columns={9} rows={13} />
-        </div>
-
-        <div className="hero__pattern-mobile">
-          <PlusGrid columns={11} rows={5} />
-        </div>
+        <PlusGrid columns={9} rows={13} />
       </aside>
     </section>
   );

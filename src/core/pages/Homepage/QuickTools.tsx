@@ -3,12 +3,15 @@ import { ROUTES } from "../../../constants/routes";
 
 type ToolIconName = "image" | "resize" | "file" | "plus";
 
+type ToolTone = "gold" | "sage" | "rose" | "neutral";
+
 type Tool = {
   title: string;
   description: string;
   path: string;
   icon: ToolIconName;
-  accent?: boolean;
+  tone: ToolTone;
+  featured?: boolean;
 };
 
 const tools: Tool[] = [
@@ -17,25 +20,29 @@ const tools: Tool[] = [
     description: "Convert image files",
     path: ROUTES.heicConverter,
     icon: "image",
+    tone: "gold",
   },
   {
     title: "Image Resizer",
     description: "Resize image dimensions",
     path: ROUTES.imageResizer,
     icon: "resize",
+    tone: "sage",
   },
   {
     title: "Reduce File Size",
     description: "Compress large files",
     path: ROUTES.fileReducer,
     icon: "file",
+    tone: "rose",
   },
   {
     title: "More Tools",
     description: "Browse all utilities",
     path: ROUTES.tools,
     icon: "plus",
-    accent: true,
+    tone: "gold",
+    featured: true,
   },
 ];
 
@@ -122,7 +129,8 @@ function QuickTools() {
             className={[
               "tool-card",
               "interactive-element",
-              tool.accent && "tool-card--accent",
+              `tool-card--${tool.tone}`,
+              tool.featured && "tool-card--featured",
             ]
               .filter(Boolean)
               .join(" ")}
