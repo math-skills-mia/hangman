@@ -1,111 +1,188 @@
-import { useState } from "react";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import logo from "../../assets/images/arcadelogo.png";
+import { useEffect, useState } from "react";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
+import { ROUTES } from "../../constants/routes";
+
+const navigationItems = [
+  {
+    label: "Home",
+    path: ROUTES.home,
+    end: true,
+  },
+  {
+    label: "Tools",
+    path: ROUTES.tools,
+  },
+  {
+    label: "Games",
+    path: ROUTES.games,
+  },
+  {
+    label: "About",
+    path: ROUTES.about,
+  },
+];
 
 function Navbar() {
-  const [showDropNav, setShowDropNav] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
+
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    }
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [isMenuOpen]);
+
   return (
-    <>
-      {/* Sticky Navbar */}
-      <div className="sticky top-0 w-full bg-lime-900/85 backdrop-blur-sm text-white z-20">
-        <div className="flex max-w-7xl mx-auto h-15 px-4 sm:px-6 lg:px-8 justify-between items-center">
-          {/* Logo */}
-          <h1>
-            <Link to={"/homepage"} className="flex items-center">
-              <img
-                src={logo}
-                alt="LogicArcade Logo"
-                className="h-11 mt-1 w-auto"
-              />
-              <span className="shrink-0 font-bold text-2xl tracking-wider hover:lime-glow hover:font-extrabold pl-2">
-                LogicArcade
-              </span>
-            </Link>
-          </h1>
+    <header className="site-header">
+      <nav className="navbar" aria-label="Main navigation">
+        <NavLink className="navbar__brand" to={ROUTES.home} onClick={closeMenu}>
+          <span className="navbar__brand-mark" aria-hidden="true">
+            +
+          </span>
 
-          {/* Desktop Menu Items */}
-          <ul className="hidden md:flex text-lg font-semibold items-center">
-            <li>
-              <Link
-                to={"/homepage"}
-                className="block p-4 hover:bg-lime-950 hover:font-bold"
-              >
-                GAMES
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={"/about"}
-                className="block p-4 hover:bg-lime-950 hover:font-bold"
-              >
-                ABOUT
-              </Link>
-            </li>
-          </ul>
+          <span className="navbar__brand-name">Mia Striebeck</span>
+        </NavLink>
 
-          {/* Spacer for mobile to maintain layout */}
-          <div className="block md:hidden w-6 h-6" />
+        <div className="navbar__desktop-navigation">
+          <div className="navbar__links">
+            {navigationItems.map((item) => (
+              <NavLink
+                className={({ isActive }) =>
+                  ["navbar__link", isActive && "navbar__link--active"]
+                    .filter(Boolean)
+                    .join(" ")
+                }
+                to={item.path}
+                end={item.end}
+                key={item.path}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </div>
+
+          <button
+            className="navbar__theme-placeholder"
+            type="button"
+            aria-label="Theme controls coming soon"
+            title="Theme controls coming soon"
+          >
+            <span aria-hidden="true">◐</span>
+          </button>
         </div>
-      </div>
 
-      {/* Menu/Close Button */}
+        <button
+          className="navbar__menu-button"
+          type="button"
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
+          aria-label={
+            isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
+          onClick={() => setIsMenuOpen((current) => !current)}
+        >
+          {isMenuOpen ? (
+            <AiOutlineClose aria-hidden="true" size={24} />
+          ) : (
+            <AiOutlineMenu aria-hidden="true" size={24} />
+          )}
+        </button>
+      </nav>
+
       <button
-        onClick={() => setShowDropNav(!showDropNav)}
-        className="fixed top-3 right-4 md:hidden z-50 shrink-0 text-white"
-        style={{ right: "1rem" }} // Additional positioning
-      >
-        {showDropNav ? (
-          <AiOutlineClose size={26} />
-        ) : (
-          <AiOutlineMenu size={26} />
-        )}
-      </button>
+        className={["navbar__overlay", isMenuOpen && "navbar__overlay--visible"]
+          .filter(Boolean)
+          .join(" ")}
+        type="button"
+        aria-label="Close navigation menu"
+        tabIndex={isMenuOpen ? 0 : -1}
+        onClick={closeMenu}
+      />
 
-      {/* Darkens Screen */}
-      {showDropNav && (
-        <div
-          onClick={() => setShowDropNav(false)}
-          className="fixed inset-0 bg-black/50 z-30 md:hidden"
-        />
-      )}
-
-      {/* Mobile Dropdown Menu */}
-      <div
-        className={
-          showDropNav
-            ? "fixed right-0 top-0 w-[60%] h-full bg-lime-800 text-white transition-all ease-in-out duration-500 z-40"
-            : "fixed -right-full top-0 transition-all ease-in-out duration-500 h-full z-40"
-        }
+      <aside
+        className={["navbar__drawer", isMenuOpen && "navbar__drawer--open"]
+          .filter(Boolean)
+          .join(" ")}
+        id="mobile-navigation"
+        aria-hidden={!isMenuOpen}
       >
-        {/* Logo */}
-        <div className="flex w-full m-4 mt-8 items-center">
-          <img src={logo} alt="LogicArcade Logo" className="h-11 mt-1 w-auto" />
-          <span className="shrink-0 font-bold text-2xl ml-2">LogicArcade</span>
+        <div className="navbar__drawer-header">
+          <div className="navbar__drawer-identity">
+            <span className="navbar__brand-mark" aria-hidden="true">
+              +
+            </span>
+
+            <div>
+              <p className="navbar__drawer-name">Mia Striebeck</p>
+              <p className="navbar__drawer-label">Personal website</p>
+            </div>
+          </div>
+
+          <button
+            className="navbar__drawer-close"
+            type="button"
+            aria-label="Close navigation menu"
+            onClick={closeMenu}
+          >
+            <AiOutlineClose aria-hidden="true" size={24} />
+          </button>
         </div>
-        {/* Mobile Menu Items */}
-        <ul>
-          <li>
-            <Link
-              to={"/homepage"}
-              className="block p-4 border-t border-gray-300 text-xl hover:bg-lime-950 hover:font-bold"
-              onClick={() => setShowDropNav(false)}
+
+        <div className="navbar__drawer-links">
+          {navigationItems.map((item) => (
+            <NavLink
+              className={({ isActive }) =>
+                [
+                  "navbar__drawer-link",
+                  isActive && "navbar__drawer-link--active",
+                ]
+                  .filter(Boolean)
+                  .join(" ")
+              }
+              to={item.path}
+              end={item.end}
+              onClick={closeMenu}
+              key={item.path}
             >
-              GAMES
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={"/about"}
-              className="block p-4 border-t border-gray-300 text-xl hover:bg-lime-950 hover:font-bold"
-              onClick={() => setShowDropNav(false)}
-            >
-              ABOUT
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </>
+              <span>{item.label}</span>
+              <span aria-hidden="true">→</span>
+            </NavLink>
+          ))}
+        </div>
+
+        <div className="navbar__drawer-footer">
+          <button
+            className="navbar__drawer-theme"
+            type="button"
+            aria-label="Theme controls coming soon"
+            title="Theme controls coming soon"
+          >
+            <span>Theme</span>
+            <span aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </aside>
+    </header>
   );
 }
 
