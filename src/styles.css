@@ -211,9 +211,9 @@ body,
 .hero__main {
   position: relative;
   display: flex;
-  min-height: 26rem;
+  min-height: 23.5rem;
   overflow: hidden;
-  padding: clamp(2rem, 6vw, 5.5rem);
+  padding: clamp(2rem, 5vw, 4.75rem);
 }
 
 .hero__content {
@@ -244,29 +244,12 @@ body,
   letter-spacing: 0.01em;
 }
 
-.hero__corner-mark {
-  position: absolute;
-  top: 1.75rem;
-  right: 2rem;
-  color: var(--color-accent);
-  font-family:
-    ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    Monaco,
-    Consolas,
-    monospace;
-  font-size: 2rem;
-  line-height: 1;
-}
-
 .hero__pattern-card {
   position: relative;
   display: grid;
-  min-height: 26rem;
-  place-items: center;
+  min-height: 23.5rem;
   overflow: hidden;
-  padding: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.25rem, 3vw, 2.25rem);
   background: var(--color-surface-muted);
 }
 
@@ -274,32 +257,19 @@ body,
 
 .plus-grid {
   display: grid;
-  width: min(100%, 20rem);
-  aspect-ratio: 1;
-  gap: clamp(0.25rem, 1vw, 0.65rem);
-  transform: rotate(-2deg);
-
-  -webkit-mask-image: linear-gradient(
-    135deg,
-    black 10%,
-    rgba(0, 0, 0, 0.9) 42%,
-    rgba(0, 0, 0, 0.25) 78%,
-    transparent 100%
-  );
-
-  mask-image: linear-gradient(
-    135deg,
-    black 10%,
-    rgba(0, 0, 0, 0.9) 42%,
-    rgba(0, 0, 0, 0.25) 78%,
-    transparent 100%
-  );
+  width: 100%;
+  height: 100%;
+  gap: clamp(0.2rem, 0.7vw, 0.55rem);
+  align-self: stretch;
+  justify-self: stretch;
+  transform: rotate(-1deg);
 }
 
 .plus-grid__cell {
   display: grid;
+  min-width: 0;
+  min-height: 0;
   place-items: center;
-  aspect-ratio: 1;
   color: transparent;
   font-family:
     ui-monospace,
@@ -308,12 +278,51 @@ body,
     Monaco,
     Consolas,
     monospace;
-  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-size: clamp(1rem, 1.9vw, 1.55rem);
   line-height: 1;
+  opacity: 0;
+  transform: scale(0.85);
+  user-select: none;
+  cursor: default;
+
+  transition:
+    opacity 1100ms ease,
+    color 220ms ease,
+    transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  transition-delay: var(--plus-delay, 0ms);
 }
 
 .plus-grid__cell--visible {
   color: var(--color-text);
+  opacity: var(--plus-opacity, 1);
+}
+
+.plus-grid__cell--visible:hover {
+  color: var(--color-accent);
+  opacity: 1;
+  transform: scale(1.18) rotate(10deg);
+
+  transition:
+    opacity 120ms ease,
+    color 120ms ease,
+    transform 120ms ease;
+
+  transition-delay: 0ms;
+}
+
+.plus-grid__cell--hidden,
+.plus-grid__cell--hidden:hover {
+  opacity: 0;
+  transform: scale(0.25) rotate(35deg);
+  pointer-events: none;
+
+  transition:
+    opacity 140ms ease,
+    color 140ms ease,
+    transform 180ms ease;
+
+  transition-delay: 0ms;
 }
 
 /* Larger screens */
@@ -334,15 +343,20 @@ body,
   }
 
   .hero__main {
-    min-height: 23rem;
+    min-height: 21.5rem;
   }
 
   .hero__pattern-card {
-    min-height: 14rem;
+    min-height: 12rem;
+    padding: 1.5rem 2rem;
   }
 
-  .plus-grid {
-    width: min(70%, 15rem);
+  .hero__pattern-desktop {
+    display: none;
+  }
+
+  .hero__pattern-mobile {
+    display: block;
   }
 }
 
@@ -358,23 +372,31 @@ body,
   }
 
   .hero__main {
-    min-height: 20rem;
+    min-height: 19rem;
     padding: 1.5rem;
   }
 
   .hero__pattern-card {
-    min-height: 11rem;
-    padding: 1.25rem;
+    min-height: 10rem;
+    padding: 1.25rem 1.5rem;
   }
 
-  .hero__corner-mark {
-    top: 1.25rem;
-    right: 1.25rem;
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.11em;
   }
 
   .hero__name {
-    margin-top: 1rem;
+    margin-top: 0.9rem;
+    font-size: 1rem;
   }
+
+  .hero__title {
+  max-width: 100%;
+  font-size: clamp(2.85rem, 14vw, 4rem);
+  letter-spacing: -0.065em;
+  line-height: 0.92;
+}
 }
 
 /* Accessibility */
@@ -387,5 +409,25 @@ body,
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+.hero__pattern-desktop,
+.hero__pattern-mobile {
+  width: 100%;
+  height: 100%;
+}
+
+.hero__pattern-mobile {
+  display: none;
+}
+
+@media (max-width: 52rem) {
+  .hero__pattern-desktop {
+    display: none;
+  }
+
+  .hero__pattern-mobile {
+    display: block;
   }
 }
